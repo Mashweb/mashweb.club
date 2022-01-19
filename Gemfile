@@ -7,6 +7,7 @@ end
 ruby '2.5.8'
 
 gem 'rails', '~> 5.1'
+gem 'bootsnap', require: false
 gem 'rake'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
