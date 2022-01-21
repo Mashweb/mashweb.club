@@ -6,7 +6,7 @@ end
 
 ruby '2.5.8'
 
-gem 'rails', '6.0.4.4'
+gem 'rails', '6.1.4.4'
 gem 'bootsnap', require: false
 gem 'rake'
 gem 'puma', '~> 3.0'
