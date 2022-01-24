@@ -9,6 +9,9 @@ Bundler.require(*Rails.groups)
 module MashwebMyRailsComposer
   class Application < Rails::Application
 
+    config.load_defaults 6.0
+    config.autoloader = :zeitwerk
+
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
