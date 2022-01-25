@@ -22,4 +22,7 @@ test:
 
 production:
   adapter: postgresql
-  url: <%= ENV['DATABASE_URL'] %>
+  database: db_prod
+  host: localhost
+  username: rails
+  password: mypassword
