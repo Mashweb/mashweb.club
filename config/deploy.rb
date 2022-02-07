@@ -3,7 +3,7 @@ lock "~> 3.16.0"
 # replace obvious parts
 server '188.166.126.57', port: 22, roles: [:web, :app, :db], primary: true
 set :application, "mashweb"
-set :repo_url, "https://github.com/csolg/mashweb.club.git"
+set :repo_url, "https://github.com/Mashweb/mashweb.club"
 
 set :user, 'rails'
 set :puma_threads,    [4, 16]
