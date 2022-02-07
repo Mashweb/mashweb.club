@@ -9,7 +9,7 @@ ruby '3.0.3'
 gem 'rails', '6.1.4.4'
 gem 'bootsnap', require: false
 gem 'rake'
-gem 'puma', '~> 3.0'
+gem 'puma'#, '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
@@ -38,6 +38,12 @@ group :development do
   gem 'foreman'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
+
+  gem 'capistrano',         require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
 end
 group :development, :test do
   gem 'factory_bot_rails'
