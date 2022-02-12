@@ -25,5 +25,10 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 set :puma_service_unit_env_file, '/etc/environment'
 
+# SSL
+set :nginx_ssl_certificate, "/home/#{fetch(:user)}/keys/mashweb_club.crt"
+set :nginx_ssl_certificate_key, "/home/#{fetch(:user)}/keys/privatekey_.key"
+set :nginx_use_ssl, true
+
 append :linked_files, "config/master.key"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "public/uploads", "tmp/sockets"
