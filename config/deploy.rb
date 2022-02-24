@@ -32,3 +32,30 @@ set :nginx_use_ssl, true
 
 append :linked_files, "config/master.key"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "public/uploads", "tmp/sockets"
+
+namespace :rails do
+  desc 'Open a rails console `cap [staging] rails:console [server_index default: 0]`'
+  task :console do
+    on roles(:app) do |server|
+      server_index = ARGV[2].to_i
+      return if server != roles(:app)[server_index]
+      puts "Opening a console on: #{host}...."
+      cmd = "ssh #{fetch(:user)}@#{host} -t 'cd #{fetch(:deploy_to)}/current && ~/.rvm/bin/rvm #{fetch(:rvm_ruby_version)} do bundle exec rails console -e #{fetch(:rails_env)}'"
+      puts cmd
+      exec cmd
+    end
+  end
+end
+
+namespace :log do
+  desc "Tail all application log files"
+  task :tail do
+    on roles(:app) do |server|
+      execute "tail -f #{current_path}/log/*.log" do |channel, stream, data|
+        puts "#{channel[:host]}: #{data}"
+        break if stream == :err
+      end
+    end
+  end
+end
+
